@@ -1,7 +1,7 @@
 # Manual Currency Pricing for WooCommerce Products
 
 ![Manual Currency Pricing for WooCommerce Products](https://github.com/davidofug/Manual-Currency-Pricing-for-WooCommerce-Products-mcpwp/blob/main/Feature.png)
-Custom Currency Pricing for WooCommerce Products is a plugin that allows you to add custom currency pricing options to WooCommerce products. With this plugin, you can specify different prices for each currency. This is useful if you want to sell your products in multiple currencies or if you want to override the default currency set in your WooCommerce settings.
+Manual Currency Pricing for WooCommerce Products is a plugin that allows you to add manual currency pricing options to WooCommerce product. With this plugin, you can specify different prices for each currency. This is useful if you want to sell your products in multiple currencies or if you want to override the default currency set in your WooCommerce settings.
 
 ## Installation
 
