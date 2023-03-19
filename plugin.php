@@ -5,39 +5,76 @@
 
 
 // Add the manual currency pricing field to product post type
-function add_manual_currency_pricing_field() {
+function add_manual_currency_pricing_repeater() {
 	global $woocommerce, $post;
 
-	echo '<div class="options_group">';
+	echo '<p>Manual Currency Pricing</p>';
 
-		woocommerce_wp_select( array(
-			'id' => '_manual_currency[]',
-			'label' => __( 'Currency', 'woocommerce' ),
-			'options' => array(
-				'USD' => 'US Dollars',
-				'EUR' => 'Euros',
-				'GBP' => 'British Pounds',
-				'UGX' => 'Uganda Shillings',
-				'KSh' => 'Kenyan Shillings',
-				// Add more currency options here as needed
-			 )
-			) );
-	
+	echo '<div class="options_group" id="manual_currency_field_container">';
+
+	woocommerce_wp_select( array(
+		'id' => '_manual_currency[]',
+		'label' => __( 'Currency', 'woocommerce' ),
+		'description' => 'Choose a currency!',
+		'desc_tip'    => false,
+		'options' => array(
+			'USD' => 'US Dollars',
+			'EUR' => 'Euros',
+			'GBP' => 'British Pounds',
+			'UGX' => 'Uganda Shillings',
+			'KSh' => 'Kenyan Shillings',
+			// Add more currency options here as needed
+		)
+	) );
+
 	woocommerce_wp_text_input(
 		array(
 			'id'          => '_manual_currency_price[]',
 			'label'       => __( 'Price', 'woocommerce' ),
-			'description' => '',
-			'desc_tip'    => true,
+			'description' => 'Enter the amount!',
+			'desc_tip'    => false,
 			'class'       => 'wc_input_price',
 			'type'        => 'text',
-			'default'     => '',
+			'default'     => '00.0',
 		)
 	);
-
+	echo '<div>';
+	echo '<button class="button" data-add-id="1">+</button>';
+	echo '&nbsp;';
+	echo '<button class="button" data-remove-id="1">-</button>';
 	echo '</div>';
+	echo '</div>';
+?>
+	<style>
+		.woocommerce_options_panel #manual_currency_field_container  p.form-field {
+			padding: 0 15px !important;
+
+		}
+		#manual_currency_field_container{
+			display: flex;
+			justify-content: normal;
+			align-items: center;
+
+		}
+		#manual_currency_field_container label,
+		#manual_currency_field_container input,
+		#manual_currency_field_container select {
+			display: block;
+			width: 100%;
+			float: none;
+			margin: 0;
+		}
+	</style>
+	<script>
+		const buttons = document.querySelectorAll("#manual_currency_field_container button")
+		buttons.forEach((button) => {
+			button.addEventListener('click', event => event.preventDefault());
+		});
+	</script>
+<?php
+
 }
-add_action( 'woocommerce_product_options_general_product_data', 'add_manual_currency_pricing_field' );
+add_action( 'woocommerce_product_options_general_product_data', 'add_manual_currency_pricing_repeater' );
 
 // Save manual currency pricing data on product save
 function save_manual_currency_pricing_field( $post_id ) {
