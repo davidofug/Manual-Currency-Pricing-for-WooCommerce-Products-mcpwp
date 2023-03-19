@@ -18,7 +18,7 @@ To set different prices for different currencies for a product:
 2. Scroll down to the "Custom Currency Pricing" field in the "Product Data" section.
 3. Click the "Add Row" button to add a new currency and price.
 4. Select a currency code from the drop-down list in the "Currency" field.
-5. Enter a price for the currency in the "Price" field. The price should be entered as a decimal value with a period as the decimal separator, e.g. "10.99".
+5. Enter a price for the currency in the "Price" field.
 6. Repeat steps 3-5 for each currency you want to add.
 7. Save the product.
 
