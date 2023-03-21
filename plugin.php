@@ -1,6 +1,8 @@
 <?php
 /**
 * Plugin Name: Manual Currency Pricing for WooCommerce Products
+* Author: David Wampamba
+* Author URI: https://davidofug.com
 */
 
 // Add the manual currency pricing field to product post type
