@@ -13,19 +13,19 @@ Login to your Wordpress Dashboard and navigate to Plugins
 ![Navigate to your Wordpress Plugins](./assets/02-go%20to%20plugins.png)
 
 ### Step 3
-Click on  Add New 
+Click Add New 
 ![Add New Plugin](./assets/03-add%20new.png)
 
 ### Step 4
-Upload the Zip From your Download directory.
+Browse to Upload the downloaded plugin Zip file From your Download directory.
 ![Upload](./assets/04-upload.png)
 
 ### Step 5
-After Uploading the Plugin Click Install
+After Uploading the Plugin Click "Install".
 ![Install](./assets/05-browse%20and%20install.png)
 
 ### Step 6
-After Installing the Plugin Activate it to be able to use it
+Activate the plugin to be able to use it.
 ![Activate the Plugin](./assets/06-activate.png)
 
 You can now find the activated Plugin in Your Wordpress Plugin Directory.
@@ -57,10 +57,10 @@ To set different prices for different currencies for a product:
 
 The prices you set for each currency will be used instead of the default product price when a customer selects that currency on your store.
 
-## Support
-
-If you have any questions or issues with the plugin, please [contact me](https://twitter.com/davidofug). I'll do my best to help you out!
-
 ## Contributors
 1. [David Wampamba](https://github.com/davidofug)
 2. [Fanny Nyayic](https://github.com/Nyayic)
+   
+## Support
+
+If you have any questions or issues with the plugin, please [contact me](https://twitter.com/davidofug). I'll do my best to help you out!
