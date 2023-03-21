@@ -72,7 +72,12 @@ function save_manual_currency_pricing_field( $post_id ) {
 	$product->update_meta_data( '_custom_currency_pricing', $currency_pricing_data );
 	$product->save();
 }
+
 add_action( 'woocommerce_process_product_meta', 'save_custom_currency_pricing');
+
+function save_custom_currency_pricing() {
+
+}
 
 function enqueue_manual_currency_pricing_scripts_and_styles() {
     global $post_type;
@@ -83,4 +88,3 @@ function enqueue_manual_currency_pricing_scripts_and_styles() {
 }
 
 add_action( 'admin_enqueue_scripts', 'enqueue_manual_currency_pricing_scripts_and_styles' );
-
