@@ -3,6 +3,8 @@
 * Plugin Name: Manual Currency Pricing for WooCommerce Products
 * Author: David Wampamba
 * Author URI: https://davidofug.com
+* Description: Manual Currency Pricing for WooCommerce Products is a plugin that allows you to add manual currency pricing options to WooCommerce product.
+* Tags: currency, woocommerce, products, online shops
 */
 
 // Add the manual currency pricing field to product post type
