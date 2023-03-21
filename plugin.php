@@ -1,78 +1,52 @@
 <?php
 /**
 * Plugin Name: Manual Currency Pricing for WooCommerce Products
-* Plugin Description: Manual Currency Pricing for WooCommerce Products is a plugin that allows you to add manual currency pricing options to WooCommerce product.
-* Plugin Tags: currency, woocommerce, products, online shops
+* Author: David Wampamba
+* Author URI: https://davidofug.com
+* Description: Manual Currency Pricing for WooCommerce Products is a plugin that allows you to add manual currency pricing options to WooCommerce product.
+* Tags: currency, woocommerce, products, online shops
 */
-
 
 // Add the manual currency pricing field to product post type
 function add_manual_currency_pricing_repeater() {
 	global $woocommerce, $post;
-
-	echo '<p>Manual Currency Pricing</p>';
-
-	echo '<div class="options_group" id="manual_currency_field_container">';
-
-	woocommerce_wp_select( array(
-		'id' => '_manual_currency[]',
-		'label' => __( 'Currency', 'woocommerce' ),
-		'description' => 'Choose a currency!',
-		'desc_tip'    => false,
-		'options' => array(
-			'USD' => 'US Dollars',
-			'EUR' => 'Euros',
-			'GBP' => 'British Pounds',
-			'UGX' => 'Uganda Shillings',
-			'KSh' => 'Kenyan Shillings',
-			// Add more currency options here as needed
-		)
-	) );
-
-	woocommerce_wp_text_input(
-		array(
-			'id'          => '_manual_currency_price[]',
-			'label'       => __( 'Price', 'woocommerce' ),
-			'description' => 'Enter the amount!',
-			'desc_tip'    => false,
-			'class'       => 'wc_input_price',
-			'type'        => 'text',
-			'default'     => '00.0',
-		)
-	);
-	echo '<div>';
-	echo '<button class="button" data-add-id="1">+</button>';
-	echo '&nbsp;';
-	echo '<button class="button" data-remove-id="1">-</button>';
-	echo '</div>';
-	echo '</div>';
 ?>
-	<style>
-		.woocommerce_options_panel #manual_currency_field_container  p.form-field {
-			padding: 0 15px !important;
+	<p>Manual Currency Pricing</p>
 
-		}
-		#manual_currency_field_container{
-			display: flex;
-			justify-content: normal;
-			align-items: center;
+	<div class="options_group" id="manual_currency_field_container">
+		<?php
+		woocommerce_wp_select( array(
+			'id' => '_manual_currency[]',
+			'label' => __( 'Currency', 'woocommerce' ),
+			'description' => 'Choose a currency!',
+			'desc_tip'    => false,
+			'options' => array(
+				'USD' => 'US Dollars',
+				'EUR' => 'Euros',
+				'GBP' => 'British Pounds',
+				'UGX' => 'Uganda Shillings',
+				'KSh' => 'Kenyan Shillings',
+				// Add more currency options here as needed
+			)
+		) );
 
-		}
-		#manual_currency_field_container label,
-		#manual_currency_field_container input,
-		#manual_currency_field_container select {
-			display: block;
-			width: 100%;
-			float: none;
-			margin: 0;
-		}
-	</style>
-	<script>
-		const buttons = document.querySelectorAll("#manual_currency_field_container button")
-		buttons.forEach((button) => {
-			button.addEventListener('click', event => event.preventDefault());
-		});
-	</script>
+		woocommerce_wp_text_input(
+			array(
+				'id'          => '_manual_currency_price[]',
+				'label'       => __( 'Price', 'woocommerce' ),
+				'description' => 'Enter the amount!',
+				'desc_tip'    => false,
+				'class'       => 'wc_input_price',
+				'type'        => 'text',
+				'default'     => '00.0',
+			)
+		);
+		?>
+		<div>
+			<button class="button" data-add-id="1">+</button> &nbsp;
+			<button class="button" data-remove-id="1">-</button>
+		</div>
+	</div>
 <?php
 
 }
@@ -99,3 +73,14 @@ function save_manual_currency_pricing_field( $post_id ) {
 	$product->save();
 }
 add_action( 'woocommerce_process_product_meta', 'save_custom_currency_pricing');
+
+function enqueue_manual_currency_pricing_scripts_and_styles() {
+    global $post_type;
+    if ( 'product' == $post_type ) {
+        wp_enqueue_style( 'manual_currency_pricing-plugin-admin-style', plugin_dir_url( __FILE__ ) . 'css/my-plugin-admin.css' );
+        wp_enqueue_script( 'mmanual_currency_pricing-plugin-admin-script', plugin_dir_url( __FILE__ ) . 'js/my-plugin-admin.js', array( 'jquery' ), '', true );
+    }
+}
+
+add_action( 'admin_enqueue_scripts', 'enqueue_manual_currency_pricing_scripts_and_styles' );
+

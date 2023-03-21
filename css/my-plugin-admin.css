@@ -1,0 +1,18 @@
+.woocommerce_options_panel #manual_currency_field_container  p.form-field {
+  padding: 0 15px !important;
+
+}
+#manual_currency_field_container{
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+
+}
+#manual_currency_field_container label,
+#manual_currency_field_container input,
+#manual_currency_field_container select {
+  display: block;
+  width: 100%;
+  float: none;
+  margin: 0;
+}
