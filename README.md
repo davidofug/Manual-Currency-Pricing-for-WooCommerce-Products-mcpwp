@@ -60,3 +60,7 @@ The prices you set for each currency will be used instead of the default product
 ## Support
 
 If you have any questions or issues with the plugin, please [contact me](https://twitter.com/davidofug). I'll do my best to help you out!
+
+## Contributors
+1. [David Wampamba](https://github.com/davidofug)
+2. [Fanny Nyayic](https://github.com/Nyayic)
