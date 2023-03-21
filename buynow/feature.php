@@ -1,3 +1,4 @@
+<?php
 // Add custom "Buy Now" button to product page
 function custom_buy_now_button() {
     global $product;
